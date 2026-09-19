@@ -1,130 +1,112 @@
 # 🎬 Automated Reel Generator
 
-A Python-based automation tool that converts user-uploaded images and text descriptions into ready-to-share vertical video reels.
+A Python-based automated reel generation system that converts uploaded images and text descriptions into vertical video reels with generated voice narration.
 
-The application continuously monitors a user upload folder, generates **text-to-speech audio** from the description, combines the uploaded images with the generated audio using **FFmpeg**, and creates a **1080×1920 MP4 reel** automatically.
+The project monitors user-uploaded content, converts text into audio, processes images using **FFmpeg**, and generates a final MP4 reel automatically.
 
 ## 🚀 Features
 
-* 📁 Automatically monitors new upload folders
-* 📝 Reads descriptions from `desc.txt`
-* 🔊 Converts text into speech
-* 🖼️ Combines images into a video slideshow
-* 🎵 Adds generated audio to the video
-* 📱 Creates vertical **9:16 reels (1080×1920)**
-* ⚡ Processes folders automatically in the background
-* ✅ Tracks completed folders using `done.txt`
-* 🎞️ Uses FFmpeg for efficient video processing
+* 📁 Detects newly uploaded folders
+* 📝 Reads text descriptions from uploaded content
+* 🔊 Converts text into speech using Python
+* 🖼️ Processes images into a video sequence
+* 🎵 Combines generated audio with video
+* 📱 Generates vertical **1080 × 1920** reels
+* ⚙️ Uses FFmpeg for video processing
+* ✅ Tracks processed folders using `done.txt`
+* 🔄 Automatically checks for new content
 
 ## 🛠️ Technologies & Skills
 
-* **Python**
-* **File & Folder Automation**
-* **Text-to-Speech (TTS)**
-* **FFmpeg**
-* **Subprocess Management**
-* **OS/File System Handling**
-* **Video Processing**
-* **Automation & Task Queues**
-* **MP4 Video Generation**
+**Programming & Automation**
+
+* Python
+* File & Folder Handling
+* Process Automation
+* Subprocess Management
+
+**AI / Audio**
+
+* Text-to-Speech (TTS)
+* Automated Voice Generation
+
+**Video Processing**
+
+* FFmpeg
+* Image-to-Video Processing
+* Audio-Video Synchronization
+* MP4 Generation
+* Vertical Video / 9:16 Format
 
 ## 📂 Project Structure
 
 ```text
-project/
+Automated-Reel-Generator/
 │
-├── user_uploads/
-│   └── folder_name/
-│       ├── desc.txt
-│       ├── input.txt
-│       └── images/
+├── 📁 sample_images/          # Sample images for testing
+├── 📁 static/                 # Generated/static application files
+├── 📁 templates/              # Application templates
+├── 📁 user_uploads/           # User-uploaded content
 │
-├── static/
-│   └── reels/
-│       └── generated_reel.mp4
-│
-├── text_to_audio.py
-├── main.py
-└── done.txt
+├── 📄 config.py               # Project configuration
+├── 📄 done.txt                # Tracks processed folders
+├── 📄 ffmpeg_command.txt      # FFmpeg command/reference
+├── 📄 generate_process.py     # Reel generation process
+├── 📄 main.py                 # Main application
+├── 📄 reel.mp4                # Sample generated reel
+├── 📄 sample_input_ffmpeg.txt # Sample FFmpeg input
+├── 📦 template.zip            # Project/template archive
+└── 📄 text_to_audio.py        # Text-to-speech functionality
 ```
 
-## ⚙️ How It Works
+## 🔄 Workflow
 
 ```text
 User Upload
      ↓
-New Folder Detected
+Folder Detection
      ↓
-Read desc.txt
+Read Description
      ↓
-Text → Speech
+Text-to-Speech
      ↓
-Generate audio.mp3
+Generate Audio
      ↓
-Combine Images + Audio
+Process Images
      ↓
-FFmpeg Video Processing
+FFmpeg Video Generation
      ↓
-1080 × 1920 MP4 Reel
+Combine Video + Audio
      ↓
-Save to static/reels/
+Generate Final Reel
 ```
 
-## ▶️ How to Run
+## ▶️ How It Works
 
-### 1. Install Python
+1. A new folder is placed inside `user_uploads/`.
+2. The system identifies folders that have not been processed.
+3. The description text is read from the uploaded content.
+4. `text_to_audio.py` generates the corresponding audio.
+5. FFmpeg processes the images and audio into a video.
+6. The final reel is generated in MP4 format.
+7. The folder name is added to `done.txt` to prevent duplicate processing.
 
-Make sure Python is installed on your system.
+## 🎞️ Output
 
-### 2. Install FFmpeg
+The project generates a vertical social-media-ready reel in:
 
-FFmpeg must be installed and available in your system PATH.
+**1080 × 1920 resolution — 9:16 aspect ratio**
 
-### 3. Prepare an Upload Folder
-
-Create a folder inside:
+A sample output is included as:
 
 ```text
-user_uploads/
-```
-
-The folder should contain the required description and input files.
-
-Example:
-
-```text
-user_uploads/my_reel/
-├── desc.txt
-├── input.txt
-└── images/
-```
-
-### 4. Run the Automation
-
-```bash
-python main.py
-```
-
-The program continuously checks for new folders and processes them automatically.
-
-## 📌 Output
-
-Generated reels are saved inside:
-
-```text
-static/reels/
-```
-
-Example:
-
-```text
-static/reels/my_reel.mp4
+reel.mp4
 ```
 
 ## 💡 Key Learning
 
-This project demonstrates how Python can be used to build an **automated content-generation pipeline**, connecting text processing, text-to-speech, file-system automation, and video processing into a single workflow.
+This project demonstrates how Python can automate a complete **content-to-video generation pipeline**, combining text processing, text-to-speech, file-system automation, and FFmpeg-based video processing.
 
 ## 👩‍💻 Skills Demonstrated
 
-**Python | Automation | Text-to-Speech | FFmpeg | Video Processing | File Handling | Subprocess | Content Generation**
+**Python | Automation | Text-to-Speech | FFmpeg | Video Processing | File Handling | Subprocess | Audio Processing | Content Generation**
